@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Feliz Día del Padre</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap" rel="stylesheet"/>
+  <style>
+    :root {
+      --main-bg: #0f172a;
+      --highlight: #38bdf8;
+      --text-color: #f1f5f9;
+      --card-bg: rgba(255,255,255,0.05);
+      --btn-bg: #2563eb;
+      --btn-hover: #1e40af;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: var(--main-bg);
+      color: var(--text-color);
+      overflow-x: hidden;
+    }
+
+    .bubbles {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      overflow: hidden;
+    }
+
+    .bubble {
+      position: absolute;
+      bottom: -100px;
+      width: 15px;
+      height: 15px;
+      background: var(--highlight);
+      border-radius: 50%;
+      animation: rise 10s infinite ease-in;
+      opacity: 0.3;
+    }
+
+    @keyframes rise {
+      0% { transform: translateY(0) scale(1); opacity: 0.4; }
+      100% { transform: translateY(-110vh) scale(1.5); opacity: 0; }
+    }
+
+    header {
+      padding: 4rem 2rem;
+      animation: fadeInDown 1s ease;
+      text-align: center;
+    }
+
+    .typewriter {
+      display: inline-block;
+      border-right: .15em solid var(--highlight);
+      white-space: nowrap;
+      overflow: hidden;
+      animation: typing 3s steps(40, end), blink-caret .75s step-end infinite;
+      font-size: 2.5rem;
+      color: var(--highlight);
+    }
+
+    @keyframes typing {
+      from { width: 0 }
+      to { width: 100% }
+    }
+
+    @keyframes blink-caret {
+      from, to { border-color: transparent }
+      50% { border-color: var(--highlight); }
+    }
+
+    section {
+      padding: 5rem 2rem;
+      text-align: center;
+      opacity: 0;
+      transform: translateY(50px);
+      transition: all 1s ease;
+    }
+
+    section.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .card {
+      background: var(--card-bg);
+      margin: 2rem auto;
+      padding: 2rem;
+      border-radius: 15px;
+      max-width: 800px;
+      backdrop-filter: blur(6px);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+      animation: slideIn 1s ease forwards;
+    }
+
+    .card:hover {
+      transform: scale(1.02);
+    }
+
+    .card h2 {
+      color: var(--highlight);
+      margin-bottom: 1rem;
+    }
+
+    .card p {
+      font-size: 1.1rem;
+      line-height: 1.6;
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+
+    .gallery div {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .gallery img {
+      width: 100%;
+      border-radius: 12px;
+      transition: transform 0.4s ease;
+      animation: pulse 2s infinite;
+    }
+
+    .gallery img:hover {
+      transform: scale(1.05);
+    }
+
+    .btn {
+      background-color: var(--btn-bg);
+      color: white;
+      border: none;
+      padding: 1rem 2rem;
+      border-radius: 30px;
+      font-size: 1.1rem;
+      cursor: pointer;
+      margin-top: 2rem;
+      position: relative;
+      overflow: hidden;
+      transition: background 0.3s ease, transform 0.2s ease;
+    }
+
+    .btn::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: rgba(255,255,255,0.2);
+      transition: left 0.5s;
+    }
+
+    .btn:hover::before {
+      left: 100%;
+    }
+
+    .btn:hover {
+      background-color: var(--btn-hover);
+      transform: scale(1.05);
+    }
+
+    @keyframes fadeInDown {
+      from { opacity: 0; transform: translateY(-50px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.02); }
+      100% { transform: scale(1); }
+    }
+
+    @keyframes slideIn {
+      from { transform: translateX(-100px); opacity: 0; }
+      to { transform: translateX(0); opacity: 1; }
+    }
+
+    @media screen and (max-width: 600px) {
+      header h1.typewriter {
+        font-size: 1.5rem;
+      }
+      .btn {
+        font-size: 1rem;
+        padding: 0.8rem 1.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="bubbles">
+    <div class="bubble" style="left: 10%; animation-duration: 12s;"></div>
+    <div class="bubble" style="left: 30%; animation-duration: 9s;"></div>
+    <div class="bubble" style="left: 50%; animation-duration: 11s;"></div>
+    <div class="bubble" style="left: 70%; animation-duration: 8s;"></div>
+    <div class="bubble" style="left: 90%; animation-duration: 13s;"></div>
+  </div>
+
+  <header>
+    <h1 class="typewriter">¡Feliz Día del Padre!</h1>
+    <button class="btn" onclick="alert('Te amo papá, eres el mejor del mundo 💙')">Presiona para un mensaje especial</button>
+  </header>
+
+  <section class="visible">
+    <div class="card">
+      <h2>Querido Papá</h2>
+      <p>Gracias por cada momento, cada sonrisa, cada consejo. Tu amor y tu esfuerzo son el mejor regalo que me has dado 💙</p>
+      <button class="btn" onclick="mostrarOcultar(this)">Ver más</button>
+      <div style="display:none; margin-top:1rem;" class="contenido-extra">
+        <p>Desde que era pequeño, siempre me has dado tu mano para levantarme. Hoy te doy todo mi corazón para agradecerte 💙</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="card">
+      <h2>Galería de Recuerdos</h2>
+      <div class="gallery">
+        <div>
+          <img src="img/papa1.jpeg" alt="Papá">
+          <p>Siempre estaré agradecido por tu amor incondicional 💙</p>
+        </div>
+        <div>
+          <img src="img/papa2.jpeg" alt="Papá">
+          <p>Tu ejemplo es mi mayor inspiración 💙</p>
+        </div>
+        <div>
+          <img src="img/papa3.jpeg" alt="Papá">
+          <p>Gracias por enseñarme a nunca rendirme </p>
+        </div>
+        <div>
+          <img src="img/papa4.jpeg" alt="Papá">
+          <p>En cada paso, siento tu apoyo. ¡Te amo, papá! </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="card">
+      <h2>Un mensaje especial</h2>
+      <p>Hoy celebro al hombre que me enseñó a ser valiente, a tener paciencia y a dar lo mejor de mí cada día. ¡Eres mi héroe! 💙</p>
+      <button class="btn" onclick="alert('Papá, gracias por todo. ¡Te amo con todo mi corazón! 💙')">Díselo otra vez</button>
+    </div>
+  </section>
+
+  <section>
+    <div class="card">
+      <h2>Frases para ti</h2>
+      <p>"Un padre es alguien que te atrapa antes de caer, te levanta cuando no puedes y te ama sin condición." 💙</p>
+      <p>"Gracias por enseñarme que los errores son oportunidades de aprender." 💙</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="card">
+      <h2>Reflexión</h2>
+      <p>En este día especial, recordamos que no hay palabras suficientes para agradecer a quien ha dado tanto sin pedir nada. ¡Te celebramos hoy y siempre! 💙</p>
+    </div>
+  </section>
+
+  <script>
+    const sections = document.querySelectorAll('section');
+    window.addEventListener('scroll', () => {
+      const trigger = window.innerHeight * 0.8;
+      sections.forEach(section => {
+        const top = section.getBoundingClientRect().top;
+        if (top < trigger) {
+          section.classList.add('visible');
+        }
+      });
+    });
+
+    function mostrarOcultar(btn) {
+      const content = btn.nextElementSibling;
+      if (content.style.display === "none") {
+        content.style.display = "block";
+        btn.textContent = "Ver menos";
+      } else {
+        content.style.display = "none";
+        btn.textContent = "Ver más";
+      }
+    }
+  </script>
+</body>
+</html>
+
+
